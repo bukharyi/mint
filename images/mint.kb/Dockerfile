@@ -8,10 +8,7 @@ ENV AGRAPH_PASSWORD super
 #run allegrograph as this user
 ENV AGRAPH_RUNAS_USER root 
 ####INSTALL ALLEGROGRAPH####
-ADD agraph-5.0.2-1.x86_64.rpm /entrypoint/
-ADD configure-agraph.sh /entrypoint/
-RUN rpm -ivh /entrypoint/agraph-5.0.2-1.x86_64.rpm
-RUN /bin/rm /entrypoint/agraph-5.0.2-1.x86_64.rpm
+RUN rpm -Uvh http://franz.com/ftp/pri/acl/ag/ag5.0.2/linuxamd64.64/agraph-5.0.2-1.x86_64.rpm
 RUN mkdir -p /var/run/agraph /var/lib/agraph/settings /var/log/agraph
 
 ###SETUP THE CONTAINER
